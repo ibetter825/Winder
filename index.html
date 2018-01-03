@@ -14,7 +14,7 @@
     <meta name="author" content="ibetter825" />
 
     <link rel="stylesheet" href="css/animate.min.css" />
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_525225_pkealcrabcoez5mi.css" />
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_525225_0wtbc8wx73mwvcxr.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -63,36 +63,80 @@
                 </p>
             </section>
         </article>
-
     </section>
+    <nav class="nav animated">
+        <ul>
+            <li><i class="iconfont icon-home"></i>首页</li>
+            <li><i class="iconfont icon-tag"></i>标签</li>
+        </ul>
+    </nav>
+    <aside class="nav-btn">
+        <i class="iconfont icon-menu"></i>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(function() {
-        //PC端
-        //当鼠标在墙纸中移动时，顺便移动墙纸
         let $window = $(window),
-            $wall = $('.wall');
+            $wall = $('.wall'),
+            $nav = $('.nav'),
+            $navBtn = $('.nav-btn');
         $wall.height($window.height());
+        $nav.height($window.height());
         let $wallImg = $wall.find('img');
         let prevX = 0,
             prevY = 0;
-        $wall.mousemove(function(e) {
-            let top = parseFloat($wallImg.css('top'));
-            let left = parseFloat($wallImg.css('left'));
-            let dis = 0.5;
-            if (e.pageX < prevX)
-                $wallImg.css('left', left + dis);
+        if (OS.isPc) {
+            //PC端
+            //当鼠标在墙纸中移动时，顺便移动墙纸
+            $wall.mousemove(function(e) {
+                let top = parseFloat($wallImg.css('top'));
+                let left = parseFloat($wallImg.css('left'));
+                let dis = 0.5;
+                if (e.pageX < prevX)
+                    $wallImg.css('left', left + dis);
+                else
+                    $wallImg.css('left', left - dis);
+                if (e.pageY < prevY)
+                    $wallImg.css('top', top + dis);
+                else
+                    $wallImg.css('top', top - dis);
+                prevX = e.pageX;
+                prevY = e.pageY;
+            });
+        } else {
+            $wallImg.css('left', '-120%');
+        }
+
+        $window.scroll(function() {
+            if ($nav.hasClass('fadeOutLeft') || $nav.hasClass('fadeInLeft'))
+                $nav.removeClass('fadeInLeft').addClass('fadeOutLeft');
+        });
+        $navBtn.click(function() {
+            if ($nav.hasClass('fadeInLeft'))
+                $nav.removeClass('fadeInLeft').addClass('fadeOutLeft');
             else
-                $wallImg.css('left', left - dis);
-            if (e.pageY < prevY)
-                $wallImg.css('top', top + dis);
-            else
-                $wallImg.css('top', top - dis);
-            prevX = e.pageX;
-            prevY = e.pageY;
+                $nav.removeClass('fadeOutLeft').addClass('fadeInLeft');
         });
     });
+
+    /*判断是否是PC*/
+    let OS = function() {
+        let ua = navigator.userAgent,
+            isWindowsPhone = /(?:Windows Phone)/.test(ua),
+            isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+            isAndroid = /(?:Android)/.test(ua),
+            isFireFox = /(?:Firefox)/.test(ua),
+            isChrome = /(?:Chrome|CriOS)/.test(ua),
+            isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+            isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+            isPc = !isPhone && !isAndroid && !isSymbian;
+        return {
+            isTablet: isTablet,
+            isPhone: isPhone,
+            isAndroid: isAndroid,
+            isPc: isPc
+        };
+    }();
 </script>
 
 </html>

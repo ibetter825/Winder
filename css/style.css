@@ -76,7 +76,7 @@ a:hover {
     font-size: 2rem;
     color: #fff;
     top: 60px;
-    left: 60px;
+    left: 70px;
     z-index: 1990;
 }
 
@@ -89,6 +89,57 @@ a:hover {
     height: 100%;
     overflow: hidden;
     position: relative;
+}
+
+.nav {
+    width: 200px;
+    background: rgba(30, 30, 30, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.nav ul {
+    margin-top: 200px;
+}
+
+.nav li {
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 1rem;
+}
+
+.nav li:hover {
+    background: rgba(250, 150, 150, 0.2);
+}
+
+.nav .iconfont {
+    font-size: 1.8rem;
+    position: relative;
+    top: 2px;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 60px;
+    right: 70px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.nav-btn .iconfont {
+    color: #fff;
+    font-size: 2rem;
 }
 
 .wall img {
@@ -249,6 +300,16 @@ a:hover {
 /* 440分辨率以下（小于479px） */
 
 @media only screen and (max-width: 479px) {
+    .logo {
+        width: 30px;
+        height: 30px;
+        top: 40px;
+        left: 30px;
+    }
+    .nav-btn {
+        top: 45px;
+        right: 30px;
+    }
     .wall img {
         width: auto;
         height: 120%;
