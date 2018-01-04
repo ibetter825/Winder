@@ -176,6 +176,10 @@ a:hover {
     position: relative;
 }
 
+.article a {
+    color: #333333;
+}
+
 .article:last-child {
     margin-bottom: 0;
 }
@@ -274,6 +278,69 @@ a:hover {
 
 .article .art-count .iconfont:first-child {
     margin-left: 0;
+}
+
+
+/*detail*/
+
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #F7F7F7;
+    background: #ECECEC;
+}
+
+.top .logo {
+    position: static;
+}
+
+.top .logo img {
+    width: 50%;
+}
+
+.detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.detail h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #333333;
+    padding: 50px 0 20px;
+}
+
+.detail aside {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.detail aside span {
+    margin: 0 10px;
+}
+
+.detail aside span:first-child {
+    margin-left: 0;
+}
+
+.detail .content {
+    padding: 50px 0;
+    color: #333333;
+    font-size: 1.2rem;
+}
+
+.detail .comment h4 {
+    margin-bottom: 20px;
+}
+
+.detail .comment header {
+    height: 100px;
 }
 
 
