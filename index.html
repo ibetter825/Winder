@@ -25,7 +25,7 @@
         <section class="shade"></section>
     </section>
     <section class="container">
-        <article class="article">
+        <article class="article art-widget-1">
             <section class="art-item animated fadeInLeft">
                 <img src="images/article.jpg" alt="hello world">
             </section>
@@ -46,8 +46,8 @@
                 </p>
             </section>
         </article>
-        <article class="article">
-            <section class="art-item animated fadeInLeft">
+        <article class="article art-widget-2">
+            <section class="art-item animated fadeInRight">
                 <img src="images/article.jpg" alt="hello world">
             </section>
             <section class="art-item">
@@ -66,7 +66,7 @@
             </section>
         </article>
     </section>
-    <nav class="nav animated">
+    <nav class="nav hide animated">
         <ul>
             <li><i class="iconfont icon-home"></i>首页</li>
             <li><i class="iconfont icon-tag"></i>标签</li>
@@ -94,7 +94,7 @@
             $wall.mousemove(function(e) {
                 let top = parseFloat($wallImg.css('top'));
                 let left = parseFloat($wallImg.css('left'));
-                let dis = 0.5;
+                let dis = 0.2;
                 if (e.pageX < prevX)
                     $wallImg.css('left', left + dis);
                 else
@@ -115,6 +115,8 @@
                 $nav.removeClass('fadeInLeft').addClass('fadeOutLeft');
         });
         $navBtn.click(function() {
+            if ($nav.hasClass('hide'))
+                $nav.removeClass('hide');
             if ($nav.hasClass('fadeInLeft'))
                 $nav.removeClass('fadeInLeft').addClass('fadeOutLeft');
             else

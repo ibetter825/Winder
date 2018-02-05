@@ -67,6 +67,10 @@ a:hover {
     text-decoration: none;
 }
 
+.hide {
+    display: none;
+}
+
 .logo {
     position: absolute;
     height: 50px;
@@ -92,8 +96,8 @@ a:hover {
 }
 
 .nav {
-    width: 200px;
-    background: rgba(30, 30, 30, 0.4);
+    width: 100%;
+    background: rgba(250, 250, 250, 0.9);
     position: fixed;
     top: 0;
     left: 0;
@@ -106,7 +110,7 @@ a:hover {
 
 .nav li {
     box-sizing: border-box;
-    color: #fff;
+    color: #666666;
     font-size: 1.4rem;
     line-height: 50px;
     height: 50px;
@@ -209,16 +213,32 @@ a:hover {
 
 .article .art-item:last-child {
     width: 520px;
-    height: 100%;
+    height: 90%;
     position: absolute;
-    right: 0;
-    top: 0;
+    top: 5%;
     box-sizing: border-box;
     border-width: 1px 1px 1px 0;
     border-style: solid;
     border-color: #EAEAEA;
     padding: 20px 30px;
     border-radius: 0 10px 10px 0;
+}
+
+.art-widget-1 .art-item:last-child {
+    right: 0;
+    border-width: 1px 1px 1px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.art-widget-2 .art-item:first-child {
+    border-radius: 0 10px 10px 0;
+    margin-left: 520px;
+}
+
+.art-widget-2 .art-item:last-child {
+    left: 0;
+    border-width: 1px 0 1px 1px;
+    border-radius: 10px 0 0 10px;
 }
 
 .article .art-item address {
@@ -403,6 +423,9 @@ a:hover {
         position: relative;
         width: 100%;
         padding: 20px 20px 80px 20px;
+    }
+    .art-widget-2 .art-item:first-child {
+        margin-left: 0;
     }
     .article .art-count {
         bottom: 40px;
